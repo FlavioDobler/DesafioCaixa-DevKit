@@ -20,7 +20,7 @@ func giveMoneyPls(_ valor: Int) -> String {
         } else if amount >= Cedulas.dez.rawValue {
             count10 += 1
             amount -= Cedulas.dez.rawValue
-        } else if amount >= Cedulas.cinco.rawValue {
+        } else if amount >= Cedulas.cinco.rawValue && amount % 5 == 0 {
             count5 += 1
             amount -= Cedulas.cinco.rawValue
         } else {
@@ -32,5 +32,5 @@ func giveMoneyPls(_ valor: Int) -> String {
     return "O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2)."
 }
 
-var dinheiros = giveMoneyPls(500)
+var dinheiros = giveMoneyPls(40)
 print(dinheiros)
