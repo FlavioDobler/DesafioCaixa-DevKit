@@ -34,7 +34,7 @@ func giveMoneyPls(_ valor: Int) -> String {
             count10 += 1
             amount -= Cedulas.dez.rawValue
             estoqueDez -= 1
-        } else if amount >= Cedulas.cinco.rawValue && amount % 5 == 0 && estoqueCinco > 0 {
+        } else if amount >= Cedulas.cinco.rawValue && amount.isMultiple(of: 5) && estoqueCinco > 0 {
             count5 += 1
             amount -= Cedulas.cinco.rawValue
             estoqueCinco -= 1
@@ -55,5 +55,5 @@ func giveMoneyPls(_ valor: Int) -> String {
     
 }
 
-var dinheiros = giveMoneyPls(198)
+var dinheiros = giveMoneyPls(199)
 print(dinheiros)
