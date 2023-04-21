@@ -42,18 +42,18 @@ func giveMoneyPls(_ valor: Int) -> String {
             count2 += 1
             amount -= Cedulas.dois.rawValue
             estoqueDois -= 1
-        } else  {
-           
+        } else {
+            return ("Valor Indisponivel!!")
         }
     }
     
-    if amount == 0{
-        return("O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2).")
-    } else {
+    if amount != 0{
         return("Valor Indisponivel!!")
+    } else {
+        return("O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2).")
     }
     
 }
 
-var dinheiros = giveMoneyPls(199)
+var dinheiros = giveMoneyPls(201)
 print(dinheiros)
