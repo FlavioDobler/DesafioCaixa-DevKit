@@ -15,10 +15,16 @@ var count10 = 0
 var count5 = 0
 var count2 = 0
 
+var maxCinquenta = Cedulas.cinquenta.rawValue * estoqueCinquenta
+var maxDez = Cedulas.dez.rawValue * estoqueDez
+var maxCinco = Cedulas.cinco.rawValue * estoqueCinco
+var maxDois = Cedulas.dois.rawValue * estoqueDois
+var maxValue = maxCinquenta + maxDez + maxDois + maxCinco
+
 func giveMoneyPls(_ valor: Int) -> String {
     var amount = valor
     
-    while amount > 0 {
+    while amount > 0 && amount <= maxValue {
         
         if amount >= Cedulas.cinquenta.rawValue && estoqueCinquenta > 0 {
             count50 += 1
@@ -32,18 +38,22 @@ func giveMoneyPls(_ valor: Int) -> String {
             count5 += 1
             amount -= Cedulas.cinco.rawValue
             estoqueCinco -= 1
-        } else if estoqueDois > 0  {
+        } else if estoqueDois > 0 {
             count2 += 1
             amount -= Cedulas.dois.rawValue
             estoqueDois -= 1
-        } else {
-            return "Valor indisponivel!"
+        } else  {
+           
         }
     }
-    return("O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2).")
     
+    if amount == 0{
+        return("O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2).")
+    } else {
+        return("Valor Indisponivel!!")
+    }
     
 }
 
-var dinheiros = giveMoneyPls(9)
+var dinheiros = giveMoneyPls(198)
 print(dinheiros)
