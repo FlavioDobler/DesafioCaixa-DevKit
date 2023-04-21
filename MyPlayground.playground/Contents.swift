@@ -24,28 +24,26 @@ func giveMoneyPls(_ valor: Int) -> String {
             count50 += 1
             amount -= Cedulas.cinquenta.rawValue
             estoqueCinquenta -= 1
-        } else if amount >= Cedulas.dez.rawValue && estoqueDez > 0{
+        } else if amount >= Cedulas.dez.rawValue && estoqueDez > 0 {
             count10 += 1
             amount -= Cedulas.dez.rawValue
             estoqueDez -= 1
-        } else if amount >= Cedulas.cinco.rawValue && amount % 5 == 0 && estoqueCinco > 0{
+        } else if amount >= Cedulas.cinco.rawValue && amount % 5 == 0 && estoqueCinco > 0 {
             count5 += 1
             amount -= Cedulas.cinco.rawValue
             estoqueCinco -= 1
-        } else if amount >= Cedulas.dois.rawValue && estoqueDois > 0 {
+        } else if estoqueDois > 0  {
             count2 += 1
             amount -= Cedulas.dois.rawValue
             estoqueDois -= 1
-        } else if estoqueCinquenta > 0 || estoqueDez > 0 || estoqueCinco > 0 || estoqueDois > 0 {
-            return "O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2)."
         } else {
-            return("Valor indisponivel para saque")
+            return "Valor indisponivel!"
         }
     }
-
-    return ""
+    return("O Valor de notas de Cinquenta é \(count50), de Dez é \(count10), de Cinco é \(count5), e de Dois é \(count2).")
+    
     
 }
 
-var dinheiros = giveMoneyPls(200)
+var dinheiros = giveMoneyPls(9)
 print(dinheiros)
